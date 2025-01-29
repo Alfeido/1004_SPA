@@ -8,69 +8,26 @@ h1 {
     text-align: center;
 }
 
-section {
-  height:75vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 48px;
-}
-
-.section1 {
-  background: lightgreen;
-}
-
-.section2 {
-  background: lightgreen;
-}
-
-.section3 {
-  background: lightgreen;
-}
-
-.section4 {
-  background: lightgreen;
-}
-
-.scroll-up-button {
-  all:unset;
-  position:fixed;
-  bottom: 25px;
-  right: 30px;
-  height: 90px;
-  width: 90px;
-  background-color: #000000;
-  border-radius: 99%;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.scroll-up-btn .arrow-up {
-  width: 28px;
-  height: 28px;
-  border-left: 4px solid #f9f9f9;
-  border-bottom: 4px solid #f9f9f9;
-  transform: rotate(135deg);
-  margin-bottom: -14px;
-  pointer-events: none;
-}
-
-topnav {
-  background-color: #333;
+.topnav {
   overflow: hidden;
+  background-color: #c30000;
+  position:fixed;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  background-color: #c30000;
+  color: white;
+  opacity: 30%;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  position:fixed;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .grid-container {
@@ -86,6 +43,11 @@ topnav {
   border-radius: 25px;
 }
 
+@keyframes drop-down {
+  from {height: 100%;}
+  to {height: 200%;}
+}
+
 .spades {
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
@@ -96,7 +58,9 @@ topnav {
   }
 
 .spades:hover {
-  height: 200%;
+  animation-name: drop-down;
+  animation-duration: 0.5s;
+  height:200%;
   text-align: center;
   z-index: +1;
 }
@@ -111,6 +75,9 @@ topnav {
   }
 
   .clubs:hover {
+    animation-name: drop-down;
+  animation-duration: 0.5s;
+  height:200%;
     height: 200%;
     text-align: center;
     z-index: +1;
@@ -126,6 +93,9 @@ topnav {
   }
 
   .diamonds:hover {
+    animation-name: drop-down;
+  animation-duration: 0.5s;
+  height:200%;
     height: 200%;
     text-align: center;
     z-index: +1;
@@ -141,6 +111,9 @@ topnav {
   }
 
   .hearts:hover {
+    animation-name: drop-down;
+  animation-duration: 0.5s;
+  height:200%;
     height: 200%;
     text-align: center;
     z-index: +1;
