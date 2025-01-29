@@ -8,6 +8,56 @@ h1 {
     text-align: center;
 }
 
+section {
+  height:75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 48px;
+}
+
+.section1 {
+  background: lightgreen;
+}
+
+.section2 {
+  background: lightgreen;
+}
+
+.section3 {
+  background: lightgreen;
+}
+
+.section4 {
+  background: lightgreen;
+}
+
+.scroll-up-button {
+  all:unset;
+  position:fixed;
+  bottom: 25px;
+  right: 30px;
+  height: 90px;
+  width: 90px;
+  background-color: #000000;
+  border-radius: 99%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scroll-up-btn .arrow-up {
+  width: 28px;
+  height: 28px;
+  border-left: 4px solid #f9f9f9;
+  border-bottom: 4px solid #f9f9f9;
+  transform: rotate(135deg);
+  margin-bottom: -14px;
+  pointer-events: none;
+}
+
 topnav {
   background-color: #333;
   overflow: hidden;
@@ -33,6 +83,7 @@ topnav {
   height: 800px;
   border: 3px solid green;
   padding: 10px;
+  border-radius: 25px;
 }
 
 .spades {
@@ -41,7 +92,14 @@ topnav {
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
+    border-radius: 25px;
   }
+
+.spades:hover {
+  height: 200%;
+  text-align: center;
+  z-index: +1;
+}
   
   .clubs {
     background-color: rgba(255, 255, 255, 0.8);
@@ -49,6 +107,13 @@ topnav {
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
+    border-radius: 25px;
+  }
+
+  .clubs:hover {
+    height: 200%;
+    text-align: center;
+    z-index: +1;
   }
   
   .diamonds {
@@ -57,6 +122,13 @@ topnav {
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
+    border-radius: 25px;
+  }
+
+  .diamonds:hover {
+    height: 200%;
+    text-align: center;
+    z-index: +1;
   }
   
   .hearts {
@@ -65,4 +137,11 @@ topnav {
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
+    border-radius: 25px;
+  }
+
+  .hearts:hover {
+    height: 200%;
+    text-align: center;
+    z-index: +1;
   }

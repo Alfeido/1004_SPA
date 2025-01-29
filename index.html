@@ -6,11 +6,17 @@
 </head>
 <body>
   <h1>Ace0Ace</h1>
-    <div class="topnav">
-        <a href="">Home</a>
-        <a href="">Login</a>
-        <a href="">Logout</a>
-    </div><br><br><br><br>
+
+  <button class="scroll-up-btn">
+      <i class="arrow-up"></i>
+  </button>
+
+  <section class="section1">Section 1</section>
+  <section class="section2">Section 2</section>
+  <section class="section3">Section 3</section>
+  <section class="section4">Section 4</section>
+
+    <br><br><br><br>
 
     <center><div class="grid-container">
         <div class="spades"><img src="images/Royal_Flush.png"></div>
@@ -25,4 +31,14 @@
         <div class="hearts"><img src="images/High_Card.png"></div>
       </div></center>
     <p>This is a paragraph.</p>
+    <script>
+      const btn = document.querySelector(".scroll-up-btn");
+
+      btn.addEventListener("click", () =>{
+        document.documentElement.scrollTo({
+          top: 0,
+          behaviour: "smooth",
+        });
+      });
+    </script>
 </body>
