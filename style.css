@@ -10,9 +10,10 @@ h1 {
 }
 
 main{
-  height: 55%px;
+  height: 55%;
   display:flex;
   justify-content: center;
+  border: 1px solid white;
 }
 
 .topnav {
@@ -50,12 +51,32 @@ html {
   width:calc(var(--card-width)*(var(--num-cards)/2)+var(--card-horizontal-space));
   display:grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows:1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas: "a b"
-                        "c d";
+                      "c d";
+  border: 1px solid white;
 }
 
-.card-pos-a
+.card-pos-a{
+  grid-area: a;
+  border: 1px solid white;
+  background-color: gray;
+}
+.card-pos-b{
+  grid-area: b;
+  border: 1px solid white;
+  background-color: goldenrod;
+}
+.card-pos-c{
+  grid-area: c;
+  border: 1px solid white;
+  background-color: rosybrown;
+}
+.card-pos-d{
+  grid-area: d;
+  border: 1px solid white;
+  background-color: darkcyan;
+}
 
 .card{
   position:absolute;
