@@ -10,7 +10,8 @@ h1 {
 }
 
 main{
-  height: 55%;
+  height:100%;
+  width: 100%;
   display:flex;
   justify-content: center;
   border: 1px solid white;
@@ -43,6 +44,7 @@ html {
   --card-height:220px;
   --num-cards:4;
   --card-horizontal-space: 100px;
+  
 }
 
 .card-container {
@@ -52,8 +54,7 @@ html {
   display:grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: "a b"
-                      "c d";
+  grid-template-areas: "a b" "c d";
   border: 1px solid white;
 }
 
@@ -76,6 +77,12 @@ html {
   grid-area: d;
   border: 1px solid white;
   background-color: darkcyan;
+}
+
+.card-pos-a, .card-pos-b, .card-pos-c, .card-pos-d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card{
@@ -165,8 +172,3 @@ html {
     font-size: 20px;
     border-radius: 25px;
   }
-
-.image {
-  width: 100%;
-  height: 100%;
-}
