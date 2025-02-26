@@ -5,6 +5,10 @@ const cardObjectDefinitions = [
     {id:4, imagePath:'images/card-AceSpades.png'}
 ];
 
+const cardBackImgPath = 'images/card-back-blue.png'
+
+const cardContainerElem = document.querySelector('.card-container')
+
 {/* <div class="card">
 <div class="card-inner">
     <div class="card-front">
@@ -15,6 +19,14 @@ const cardObjectDefinitions = [
     </div>
 </div>
 </div> */}
+
+createCards()
+
+function createCards() {
+    cardObjectDefinitions.forEach((cardItem)=>{
+        createCard(cardItem)
+    })
+}
 
 function createCard(cardItem){
     //div elements that make up a card
@@ -35,15 +47,64 @@ function createCard(cardItem){
 
     addClassToElement(cardBackElem, 'card-back')
 
+    addSrcToImageElem(cardBackElem, cardBackImgPath)
+
+    addSrcToImageElem(cardFrontElem, cardItem.imagePath)
+
+    addClassToElement(cardBackElem, 'card-img')
+
+    addClassToElement(cardFrontElem, 'card-img')
+
+    addChildElement(cardFrontElem, cardFrontImg)
+
+    addChildElement(cardBackElem, cardBackImg)
+
+    addChildElement(cardInnerElem, cardFrontElem)
+
+    addChildElement(cardInnerElem, cardBackElem)
+
+    addChildElement(cardElem, cardInnerElem)
+
+    addCardToGridCell(cardElem)
+
+   
     
 
 }
 function createElement(elemType){
-    return document.createElement('div')
+    return document.createElement(elemType)
 }
-function addClassToElement(elem, class) {
+function addClassToElement(elem, className) {
     elem.classList.add(className)
 }
 function addIdToElement(elem, id){
     elem.id = id
+}
+function addSrcToImageElem(imgElem, src){
+    imgElem.src = src
+}
+function addChildElement(parentElem, childElem){
+    parentElem.appendChild(childElem)
+}
+function addCardToGridCell(card) {
+    const cardPositionClassName = mapCardIdToGridCell(card)
+
+    const cardPosElem = document.querySelector(cardPositionClassName)
+
+    addChildElement(cardPosElem, card)
+
+}
+function mapCardIdToGridCell() {
+    if(card.id == 1) {
+        return '.card-pos-a';
+    }
+    else if(card.id == 2) {
+        return '.card-pos-b';
+    }
+    else if(card.id == 3) {
+        return '.card-pos-c'
+    }
+    else if(card.id == 4) {
+        return '.card-pos-d'
+    }
 }
