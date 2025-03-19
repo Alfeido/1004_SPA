@@ -18,22 +18,24 @@ main{
 }
 
 .topnav {
-  overflow: hidden;
-  background-color: #c30000;
-  position:fixed;
-}
-
-.topnav a {
-  float: left;
-  background-color: #c30000;
-  color: white;
-  opacity: 30%;
+  width: auto;
+  color: #B6AFC1;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  position:fixed;
+  left: 0px;
+  position: absolute;
+  overflow: visible;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  position: fixed;
 }
+ .topnav_btn {
+   font-size: 20px;
+   background-color: #741f1f;
+   margin: 10px;
+   padding: 10px;
+   display: inline-block;
+ }
 
 html {
   scroll-behavior: smooth;
@@ -172,3 +174,11 @@ html {
     font-size: 20px;
     border-radius: 25px;
   }
+
+.page {
+  display: none;
+}
+
+.active {
+  display: block;
+}
