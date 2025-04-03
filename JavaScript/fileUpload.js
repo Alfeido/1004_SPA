@@ -1,4 +1,4 @@
-document.getElementById('uploadedFile').addEventListener('change', onChange);
+document.getElementById("uploadedFile").addEventListener("change", onChange);
 
 function onChange(event) {
     var reader = new FileReader();
@@ -6,13 +6,27 @@ function onChange(event) {
     reader.readAsText(event.target.files[0]);
 }
 
-function readerLoad(event){
+function readerLoad(event) {
     console.log(event.target.result);
-    var obj = JSON.parse(event.target.result);
-    loadText(obj)
+    
+    try {
+        var obj = JSON.parse(event.target.result);
+        loadText(obj);
+    } catch (error) {
+        console.error("Error parsing JSON:", error);
+    }
 }
 
-function loadText(file){
+function loadText(file) {
     let heading = document.querySelector("h2");
-    heading.innerHTML = JSON.stringify(file, null, 2);
+    
+    if (heading) {
+        heading.innerHTML = JSON.stringify(file.username, null, 2);
+    }
+
+    let score = document.querySelector("p");
+
+    if (score) {
+        score.innerHTML = JSON.stringify(file.score, null, 2);
+    }
 }
