@@ -1,3 +1,4 @@
+
 const cardObjectDefinitions = [
     {id:1, imagePath:'images/card-KingHearts.png'},
     {id:2, imagePath:'images/card-JackClubs.png'},
@@ -44,9 +45,6 @@ let score = 0
 let gameObj = {}
 
 const localStorageGameKey = "HTA"
-
-
-
 
 loadGame()
 
@@ -123,6 +121,7 @@ function calculateScore()
 {
     const scoreToAdd = calculateScoreToAdd(roundNum)
     score = score + scoreToAdd
+    obj.score = score
 }
 
 function updateScore()
@@ -162,10 +161,12 @@ function evaluateCardChoice(card)
     {
         updateScore()
         outputChoiceFeedBack(true)
+        
     }
     else
     {
         outputChoiceFeedBack(false)
+
     }
 }
 
@@ -301,6 +302,32 @@ function flipCards(flipToBack){
     })
 }
 
+function cardFlyInEffect()
+{
+    const id = setInterval(flyIn, 5)
+    let cardCount = 0
+
+    let count = 0
+
+    function flyIn()
+    {
+        count++
+        if(cardCount == numCards)
+        {
+            clearInterval(id)
+            playGameButtonElem.style.display = "inline-block"            
+        }
+        if(count == 1 || count == 250 || count == 500 || count == 750)
+        {
+            cardCount++
+            let card = document.getElementById(cardCount)
+            card.classList.remove("fly-in")
+        }
+    }
+
+
+
+}
 
 function removeShuffleClasses()
 {
@@ -330,7 +357,34 @@ function animateShuffle(shuffleCount)
 
 }
 
+function shuffleCards()
+{
+    let shuffleCount = 0
+    const id = setInterval(shuffle, 12)
 
+
+    function shuffle()
+    {
+        randomizeCardPositions()
+       
+        animateShuffle(shuffleCount)
+       
+        if(shuffleCount == 500)
+        {
+            clearInterval(id)
+            shufflingInProgress = false
+            removeShuffleClasses()
+            dealCards()
+            updateStatusElement(currentGameStatusElem, "block", primaryColor, "Please click the card that you think is the Ace of Spades...")
+
+        }
+        else{
+            shuffleCount++
+        }
+
+    }
+
+}
 function randomizeCardPositions()
 {
     const random1 = Math.floor(Math.random() * numCards) + 1
@@ -410,17 +464,14 @@ function createCards()
 
 function createCard(cardItem){
 
-    //create div elements that make up a card
     const cardElem = createElement('div')
     const cardInnerElem = createElement('div')
     const cardFrontElem = createElement('div')
     const cardBackElem = createElement('div')
 
-    //create front and back image elements for a card
     const cardFrontImg = createElement('img')
     const cardBackImg = createElement('img')
 
-    //add class and id to card element
     addClassToElement(cardElem, 'card')
     addClassToElement(cardElem, 'fly-in')
     addIdToElement(cardElem, cardItem.id)
@@ -428,27 +479,21 @@ function createCard(cardItem){
     addClassToElement(cardInnerElem, 'card-inner')
     
     addClassToElement(cardFrontElem, 'card-front')
-
     addClassToElement(cardBackElem, 'card-back')
 
     addSrcToImageElem(cardBackImg, cardBackImgPath)
-
     addSrcToImageElem(cardFrontImg, cardItem.imagePath)
 
     addClassToElement(cardBackImg, 'card-img')
-   
     addClassToElement(cardFrontImg, 'card-img')
 
     addChildElement(cardFrontElem, cardFrontImg)
-
     addChildElement(cardBackElem, cardBackImg)
 
     addChildElement(cardInnerElem, cardFrontElem)
-
     addChildElement(cardInnerElem, cardBackElem)
 
     addChildElement(cardElem, cardInnerElem)
-
     addCardToGridCell(cardElem)
 
     initializeCardPositions(cardElem)
@@ -512,7 +557,6 @@ function mapCardIdToGridCell(card){
     }
 }
 
-//local storage functions
 function getSerializedObjectAsJSON(obj)
 {
     return JSON.stringify(obj)
